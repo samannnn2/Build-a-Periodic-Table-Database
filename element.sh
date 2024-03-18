@@ -21,6 +21,8 @@ else
     FROM elements e
     JOIN properties p 
     USING(atomic_number)
+    JOIN types t
+    USING(type_id)
     WHERE e.symbol = '$1';
     ")"
 
@@ -31,6 +33,8 @@ else
     FROM elements e
     JOIN properties p 
     USING(atomic_number)
+    JOIN types t
+    USING(type_id)
     WHERE e.name = '$1';
     ")"
     fi
