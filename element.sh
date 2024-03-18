@@ -17,7 +17,7 @@ else
     ")"
   else
     ELEMENT_INFO="$($PSQL "
-    SELECT e.atomic_number, e.name, e.symbol, p.type, p.atomic_mass, p.melting_point_celsius, p.boiling_point_celsius
+    SELECT e.atomic_number, e.name, e.symbol, t.type, p.atomic_mass, p.melting_point_celsius, p.boiling_point_celsius
     FROM elements e
     JOIN properties p 
     USING(atomic_number)
@@ -29,7 +29,7 @@ else
     if [[ -z $ELEMENT_INFO ]]
     then
       ELEMENT_INFO="$($PSQL "
-    SELECT e.atomic_number, e.name, e.symbol, p.type, p.atomic_mass, p.melting_point_celsius, p.boiling_point_celsius
+    SELECT e.atomic_number, e.name, e.symbol, t.type, p.atomic_mass, p.melting_point_celsius, p.boiling_point_celsius
     FROM elements e
     JOIN properties p 
     USING(atomic_number)
