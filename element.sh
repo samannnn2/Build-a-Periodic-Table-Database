@@ -7,10 +7,12 @@ else
   if [[ $1 =~ ^[0-9]+$ ]]
   then
     ELEMENT_INFO="$($PSQL "
-    SELECT e.atomic_number, e.name, e.symbol, p.type, p.atomic_mass, p.melting_point_celsius, p.boiling_point_celsius
+    SELECT e.atomic_number, e.name, e.symbol, t.type, p.atomic_mass, p.melting_point_celsius, p.boiling_point_celsius
     FROM elements e
     JOIN properties p 
     USING(atomic_number)
+    JOIN types t
+    USING(type_id)
     WHERE e.atomic_number = $1;
     ")"
   else
