@@ -42,7 +42,7 @@ else
 
   if [[ -z $ELEMENT_INFO ]]
   then
-    echo "I could not find that element in the database" 
+    echo "I could not find that element in the database." 
   else
     echo "$ELEMENT_INFO" | sed 's/|/ /g' | while read NUMBER NAME SYMBOL TYPE MASS MELTING BOILING
     do 
